@@ -3,6 +3,8 @@
     "files.associations": {
         "*.ipp": "cpp",
         "iostream": "cpp",
-        "ostream": "cpp"
-    }
+        "ostream": "cpp",
+        "string": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
 }

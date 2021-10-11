@@ -26,19 +26,25 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 5,
+				"line" : 17,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 6,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 4,
+				"line" : 19,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 12,
 				"parent" : 0
 			}
 		]
@@ -50,12 +56,19 @@
 			[
 				{
 					"fragment" : "-g  "
+				},
+				{
+					"fragment" : "-std=gnu++11"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 3,
+					"path" : "/home/gnuradio/projects/webcam_images/include"
+				},
+				{
+					"backtrace" : 4,
 					"isSystem" : true,
 					"path" : "/usr/local/include/opencv4"
 				}
@@ -63,7 +76,8 @@
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
@@ -81,7 +95,28 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/usr/local/lib",
+				"backtrace" : 2,
+				"fragment" : "/usr/local/lib/libopencv_calib3d.so.4.5.4",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/usr/local/lib/libopencv_core.so.4.5.4",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/usr/local/lib/libopencv_dnn.so.4.5.4",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/usr/local/lib/libopencv_features2d.so.4.5.4",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/usr/local/lib/libopencv_flann.so.4.5.4",
 				"role" : "libraries"
 			},
 			{
@@ -92,6 +127,16 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "/usr/local/lib/libopencv_highgui.so.4.5.4",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/usr/local/lib/libopencv_imgcodecs.so.4.5.4",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/usr/local/lib/libopencv_imgproc.so.4.5.4",
 				"role" : "libraries"
 			},
 			{
@@ -175,7 +220,8 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
@@ -185,6 +231,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "canny.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

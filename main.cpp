@@ -4,7 +4,9 @@
 #include <iostream>
 #include <stdio.h>
 #include <time.h>
-#include <curl/curl.h>
+//#include <curl/curl.h>
+
+#include "include/canny.h"
 
 using namespace cv;
 using namespace std;
@@ -56,7 +58,7 @@ int main(int, char**)
                 cerr << "ERROR! blank frame grabbed\n";
                 break;
             }
-            // show live and wait for a key with timeout long enough to show images
+            // No window will be shown -> loop too quick 
             imshow("Live Camera Feed", frame);
 
         
@@ -65,11 +67,15 @@ int main(int, char**)
 
             if(i ==0){
                 long guid = rand() % 1000;
-                imwrite("./frames/frame_" + to_string(guid) + ".jpg", frame);
+                string file = "./frames/frame_" + to_string(guid) + ".jpg";
+                imwrite(file, frame);
 
-                
+                canny cn;
+                Mat file_canny = cn.calc_canny(file);
+                imwrite("./frames_canny/frame_" + to_string(guid) + ".jpg", file_canny);
+
             }
-            i++;
+            i++; //avoid several repetitions of grabbing a frame
         }
     }
     // the camera will be deinitialized automatically in VideoCapture destructor
