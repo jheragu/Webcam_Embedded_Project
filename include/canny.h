@@ -24,11 +24,11 @@ class canny{
         Mat detected_edges;
 
         // Constructor
-        canny();
+        canny(int, int, int);
 
         Mat CannyThreshold(int, void*);
 
-        Mat calc_canny(string file);
+        Mat prepare_canny(string file);
 };
 
 //#endif // CANNY_H
