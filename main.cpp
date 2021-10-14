@@ -5,10 +5,38 @@
 #include <stdio.h>
 #include <time.h>
 #include "include/canny.h"
+#include <future>
+#include <sstream>
 //#include <curl/curl.h>
 
 using namespace cv;
 using namespace std;
+
+
+void call_bash(string img_canny)
+{
+    string bash = "bash azcli_upload_blob.sh " + img_canny;
+    
+    /*
+    stringstream string_to_divide(img_canny);
+    char delimeter = '/';
+    string substring;
+    vector<std::string> vec_substrings {};
+    //Divide the string pro blank space
+    while(getline(string_to_divide, substring, delimeter)){
+        //Separates path and file
+        vec_substrings.push_back(substring);
+    }
+
+    cout << "Upload " <<  vec_substrings[2];
+    const char* command = vec_substrings[2].c_str();
+    */
+    const char* command = bash.c_str();
+    system(command);
+
+    cout << "***** Frame successfully uploaded to Azure *****" << endl;
+    
+}
 
 int main(int, char**)
 {
@@ -49,7 +77,7 @@ int main(int, char**)
         auto i = 0; //Avoid several frames being stored --> loop is executed faster than 1s
         while(((time(&timer_1) - timer) % 2) == 0){
             
-            cout << timer_1 << "\n"; 
+            //cout << timer_1 << "\n"; 
             // wait for a new frame from camera and store it into 'frame'
             cap.read(frame);
             // check if we succeeded
@@ -60,19 +88,24 @@ int main(int, char**)
             // No window will be shown -> loop too quick 
             imshow("Live Camera Feed", frame);
 
-        
-            //Pretty Time Print
-            cout << std::asctime(std::localtime(&timer));
-
             if(i == 0){
+                cout << "***** New Frame has been captured *****" << endl;
+                //Pretty Time Print
+                cout << std::asctime(std::localtime(&timer));
+
                 long guid = rand() % 1000;
                 string file = "./frames/frame_" + to_string(guid) + ".png";
                 imwrite(file, frame);
 
                 canny cn(60, 100, 3);
                 cout << "About to start calculating edges with Canny Detector..." << endl;
-                Mat file_canny = cn.prepare_canny(file);
-                imwrite("./frames_canny/frame_" + to_string(guid) + ".png", file_canny);
+                Mat mat_canny = cn.prepare_canny(file);
+
+                string img_canny = "./frames_canny/frame_" + to_string(guid) + ".png";
+                imwrite(img_canny, mat_canny);
+
+                //Call the bash script to upload the image to Azure Blob Storage
+                future<void> temp = async (call_bash, img_canny);
             }
             i++; //avoid several repetitions of grabbing a frame
         }

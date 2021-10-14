@@ -4,7 +4,8 @@
         "*.ipp": "cpp",
         "iostream": "cpp",
         "ostream": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "future": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
