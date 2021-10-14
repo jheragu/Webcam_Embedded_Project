@@ -6,7 +6,6 @@
 #include <time.h>
 #include "include/canny.h"
 #include <future>
-#include <sstream>
 //#include <curl/curl.h>
 
 using namespace cv;
