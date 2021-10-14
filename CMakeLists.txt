@@ -8,6 +8,7 @@ cmake_minimum_required(VERSION 2.8)
 #find_package(CURL REQUIRED)
 #include_directories(${CURL_INCLUDE_DIR}) 
 
+# for "future" header
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
 
 find_package( OpenCV REQUIRED )
