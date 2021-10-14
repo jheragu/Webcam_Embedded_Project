@@ -49,13 +49,14 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 CMakeFiles/
+/build/*
 
 ### CMake Patch ###
 # External projects
 *-prefix/
 
 ### VisualStudioCode ###
-.vscode/*
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -72,4 +73,6 @@ CMakeFiles/
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,cmake,visualstudiocode
 
-frames/
+#frames/
+#frames_canny/
+sas_token.sh
