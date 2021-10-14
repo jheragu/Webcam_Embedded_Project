@@ -49,7 +49,7 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 CMakeFiles/
-build/
+/build/*
 
 ### CMake Patch ###
 # External projects
@@ -75,3 +75,4 @@ build/
 
 #frames/
 #frames_canny/
+sas_token.sh
