@@ -1,5 +1,1 @@
-curl -v -X PUT -H "Content-Type: application/octet-stream" -H "x-ms-date: $(date)" -H "x-ms-version: 2020-08-04" -H "x-ms-blob-type: BlockBlob" --data-binary "/frame_383.jpg" https://videoframesstorage.blob.core.windows.net/frames/frame_383&sp=racwdl&st=2021-10-11T23:25:16Z&se=2021-12-31T08:25:16Z&spr=https&sv=2020-08-04&sr=c&sig=hU%2FU9Y1ilYZhhHlRGgzgA8iBd77S19%2F9twY%2BVoiHmyw%3D
-
-#curl -X PUT -T ./{frame_383.jpg} -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" https://videoframesstorage.blob.core.windows.net/frames/{frame_383.jpg}&sp=racwdl&st=2021-10-11T23:25:16Z&se=2021-12-31T08:25:16Z&spr=https&sv=2020-08-04&sr=c&sig=hU%2FU9Y1ilYZhhHlRGgzgA8iBd77S19%2F9twY%2BVoiHmyw%3D
-
-# curl -X PUT -T ./{frame_383.jpg} -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" https://videoframesstorage.blob.core.windows.net/frames/{frame_383.jpg}&sp=racwdl&st=2021-10-11T23:25:16Z&se=2021-12-31T08:25:16Z&spr=https&sv=2020-08-04&sr=c&sig=hU%2FU9Y1ilYZhhHlRGgzgA8iBd77S19%2F9twY%2BVoiHmyw%3D
+curl -v -X PUT -H "Content-Type: application/octet-stream" -H "x-ms-date: $(date -u)" -H "x-ms-version: 2020-08-04" -H "x-ms-blob-type: BlockBlob" --data-binary "/frames/frame_383.png"
